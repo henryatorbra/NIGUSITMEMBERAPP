@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./logout-options.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="logout-options">
+      <section class="group-section">
+        <div class="frame-child71"></div>
+        <div class="are-you-sure-wrapper">
+          <div class="are-you-sure">Are you sure?</div>
+        </div>
+        <div class="frame-parent25">
+          <button class="rectangle-parent30" id="popupgroupButton">
+            <div class="frame-child72"></div>
+            <div class="no">NO</div>
+          </button>
+          <button class="rectangle-parent31" id="popupgroupButton1">
+            <div class="frame-child73"></div>
+            <div class="yes">YES</div>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      var popupgroupButton = document.getElementById("popupgroupButton");
+      if (popupgroupButton) {
+        popupgroupButton.addEventListener("click", function (e) {
+          window.location.href = "./profile.html";
+        });
+      }
+      
+      var popupgroupButton1 = document.getElementById("popupgroupButton1");
+      if (popupgroupButton1) {
+        popupgroupButton1.addEventListener("click", function (e) {
+          window.location.href = "./login-page.html";
+        });
+      }
+      </script>
+  </body>
+</html>

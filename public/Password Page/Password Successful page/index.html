@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./password-successful.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="password-successful">
+      <div class="password-successful-inner">
+        <div class="lock-icon-wrapper">
+          <div class="lock-icon">
+            <img
+              class="icon-done"
+              loading="lazy"
+              alt=""
+              src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Password Successful page\Resources\83-512.webp"
+            />
+
+            <div class="circle-shape"></div>
+          </div>
+        </div>
+      </div>
+      <div class="your-password-reset">Your Password reset was successful</div>
+      <div class="continue-button1">
+        <div class="continue-to-home" id="continueToHome">Continue to Home</div>
+      </div>
+    </div>
+
+    <script>
+      var continueToHome = document.getElementById("continueToHome");
+      if (continueToHome) {
+        continueToHome.addEventListener("click", function (e) {
+          window.location.href = "./profile.html";
+        });
+      }
+      </script>
+  </body>
+</html>

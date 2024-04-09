@@ -1,0 +1,262 @@
+.welcome {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    font-weight: 700;
+    font-family: inherit;
+  }
+  .log-in-to1 {
+    position: relative;
+    font-size: var(--font-size-lg);
+    color: var(--color-black);
+  }
+  .welcome-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-11xl);
+    gap: var(--gap-6xs);
+  }
+  .frame-child74 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    display: none;
+    max-width: 100%;
+  }
+  .first-name {
+    position: relative;
+    display: inline-block;
+    min-width: 80px;
+    z-index: 1;
+  }
+  .frame-child75,
+  .rectangle-parent31 {
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    max-width: 100%;
+  }
+  .rectangle-parent31 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-lg) var(--padding-sm);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  .frame-child75 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    display: none;
+  }
+  .last-name {
+    position: relative;
+    display: inline-block;
+    min-width: 79px;
+    z-index: 1;
+  }
+  .frame-child76,
+  .rectangle-parent32 {
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    max-width: 100%;
+  }
+  .rectangle-parent32 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-lg) var(--padding-sm);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  .frame-child76 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    display: none;
+  }
+  .emailphone-number {
+    position: relative;
+    z-index: 1;
+  }
+  .frame-child77,
+  .rectangle-parent33 {
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    max-width: 100%;
+  }
+  .rectangle-parent33 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-lg) var(--padding-sm);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  .frame-child77 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    display: none;
+  }
+  .password2 {
+    position: relative;
+    display: inline-block;
+    min-width: 74px;
+    z-index: 1;
+  }
+  .frame-child78,
+  .rectangle-parent34 {
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    max-width: 100%;
+  }
+  .rectangle-parent34 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-lg) var(--padding-sm);
+    box-sizing: border-box;
+  }
+  .frame-child78 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    display: none;
+  }
+  .confirm-password {
+    position: relative;
+    z-index: 1;
+  }
+  .frame-parent24,
+  .rectangle-parent35 {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .rectangle-parent35 {
+    border-radius: var(--br-8xs);
+    background-color: var(--color-gainsboro-200);
+    flex-direction: row;
+    padding: var(--padding-lg) var(--padding-sm);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  .frame-parent24 {
+    flex-direction: column;
+    gap: var(--gap-xl);
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-inter);
+  }
+  .icon-task-done {
+    height: 17.8px;
+    width: 20px;
+    position: relative;
+  }
+  .terms-of-service {
+    font-weight: 500;
+    color: var(--color-crimson);
+  }
+  .span1 {
+    color: var(--color-black);
+  }
+  .policy,
+  .privacy-policy {
+    color: var(--color-crimson);
+  }
+  .privacy-policy {
+    font-weight: 500;
+  }
+  .by-clicking-on-container {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 198px;
+  }
+  .success-icon {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-11xl);
+    gap: var(--gap-3xs);
+    font-size: 11px;
+    color: var(--color-black);
+  }
+  .frame-child79 {
+    height: 55px;
+    width: 340px;
+    position: relative;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-darkslateblue-100);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: none;
+    max-width: 100%;
+  }
+  .log-in3 {
+    position: relative;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    font-family: var(--font-inter);
+    color: var(--color-white);
+    text-align: left;
+    display: inline-block;
+    min-width: 59px;
+    z-index: 1;
+  }
+  .rectangle-parent36,
+  .signup-page {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  .rectangle-parent36 {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-mini) var(--padding-xl) var(--padding-base);
+    background-color: var(--color-darkslateblue-100);
+    align-self: stretch;
+    border-radius: var(--br-3xs);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    flex-direction: row;
+    justify-content: center;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .rectangle-parent36:hover {
+    background-color: var(--color-steelblue-100);
+  }
+  .signup-page {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--padding-73xl) var(--padding-18xl) 123px;
+    gap: 40px;
+    letter-spacing: normal;
+    text-align: left;
+    font-size: var(--font-size-11xl);
+    color: var(--color-darkslateblue-100);
+    font-family: var(--font-inter);
+  }
+  

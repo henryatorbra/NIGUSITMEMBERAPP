@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./signup-page.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+    <style>
+      /* Added styles to make the rectangles clickable for text input */
+      .rectangle-parent31,
+      .rectangle-parent32,
+      .rectangle-parent33,
+      .rectangle-parent34,
+      .rectangle-parent35 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px; /* Adjust spacing between boxes */
+        border-radius: 8px; /* Add border-radius for better appearance */
+        background-color: #f0f0f0; /* Grey background color */
+        cursor: text; /* Change cursor on hover to indicate text input */
+      }
+
+      .rectangle-parent31 .frame-child74,
+      .rectangle-parent32 .frame-child75,
+      .rectangle-parent33 .frame-child76,
+      .rectangle-parent34 .frame-child77,
+      .rectangle-parent35 .frame-child78 {
+        display: none; /* Hide the frames */
+      }
+
+      .rectangle-parent31 input,
+      .rectangle-parent32 input,
+      .rectangle-parent33 input,
+      .rectangle-parent34 input,
+      .rectangle-parent35 input {
+        width: 100%; /* Set width of input fields to fill the entire box */
+        padding: 10px; /* Add padding for better appearance */
+        border: none; /* Remove border */
+        background: none; /* Remove background color */
+        outline: none; /* Remove outline on focus */
+        font-size: inherit; /* Inherit font size */
+        font-family: inherit; /* Inherit font family */
+        color: inherit; /* Inherit text color */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-page">
+      <div class="welcome-parent">
+        <h2 class="welcome">Welcome!</h2>
+        <div class="log-in-to1">Create an account with us.</div>
+      </div>
+      <section class="frame-parent24">
+        <div class="rectangle-parent31">
+          <input type="text" placeholder="First name" id="firstName"/>
+        </div>
+        <div class="rectangle-parent32">
+          <input type="text" placeholder="Last name" id="lastName"/>
+        </div>
+        <div class="rectangle-parent33">
+          <input type="text" placeholder="Email" id="email"/>
+        </div>
+        <div class="rectangle-parent33">
+          <input type="text" placeholder="Phone" id="phone"/>
+        </div>
+        <div class="rectangle-parent34">
+          <input type="password" placeholder="Password" id="password" />
+        </div>
+        <div class="rectangle-parent35">
+          <input type="password" placeholder="Confirm password"  id="confirmPassword"/>
+        </div>
+      </section>
+      <div class="success-icon">
+        <img
+          class="icon-task-done"
+          loading="lazy"
+          alt=""
+          src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Signup Page\Resources\Vector.png"
+        />
+
+        <div class="by-clicking-on-container">
+          <span
+            >By clicking on ‘sign up’, you’re agreeing to the NIGUSIT app
+          </span>
+          <a href="#" class="terms-of-service">Terms of Service</a>
+          <span> and </span>
+          <a href="#" class="privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+      <button class="rectangle-parent36" id="groupButton">
+        <div class="frame-child79"></div>
+        <div class="log-in3">Log In</div>
+      </button>
+    </div>
+
+    <script>
+      // SIGNUP PAGE SIGNUP PAGE SIGNUP PAGE SIGNUP PAGE!!!!!!
+      var groupButton = document.getElementById("groupButton");
+      if (groupButton) {
+        groupButton.addEventListener("click", async function (e) {
+          // Please sync "signup successful" to the project
+           
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword = document.getElementById("confirmPassword").value;
+          let authorization;
+
+          // The "Confirm password field will be used to compare with the "password " field to check if you are sure of the password you type"
+          // it isn't sent to the backend.
+          const requestBody = JSON.stringify({
+            firstname: firstName,
+            lastname: lastName,
+            email: email,
+            phone: phone,
+            password: password,
+            
+          });
+
+          //alert(requestBody);
+             try {
+
+         var response =  await fetch('http://localhost:9000/signup', {
+            method: 'POST',
+            //mode: "cors",
+            body: requestBody,
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          var data = await response.text();
+          var intermediateData = JSON.parse(data)
+
+        
+
+          if (response.status == 422) {
+
+            var newData =  intermediateData.error;
+            gottenMessage = JSON.stringify(newData);
+
+            alert(gottenMessage)
+          } 
+          else if (response.status == 400){
+            var newData =  intermediateData.message;
+            gottenMessage = JSON.stringify(newData);
+            alert(gottenMessage);
+          } 
+          else if (response.status == 200){
+            var newData =  intermediateData.message;
+            var newToken = intermediateData.token
+            gottenMessage = JSON.stringify(newData);
+            gottenToken = JSON.stringify(newToken);
+
+            Authheader = {
+            authorization : `Bearer ${gottenToken}`
+          }
+          alert(gottenToken);
+          window.location.href = "http://localhost:9000/profilepage";
+          }
+          
+
+
+        } catch (error) {
+          alert("this is error on signup page:  " + error);
+        };
+       
+       
+          
+        
+        });
+      }
+    </script>
+  </body>
+</html>
