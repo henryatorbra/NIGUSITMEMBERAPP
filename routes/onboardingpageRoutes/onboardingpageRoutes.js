@@ -22,11 +22,11 @@ router.use(express.static('public/Onboarding Page 2'));
 // But the route that login credentials are sent to are handled by the onboarding page route but with a loginController.
 // you can see it after the request validator middleware "loginController".
 router.post('/', requestfieldvalidator(loginfieldsvalidationschema),loginController);
-router.get('/test', (req, res)=> {
-  req.session.isAuth = true
- console.log(  Object.getOwnPropertyNames(req.session));
-    //console.log(req.session);
-    res.json({message : 'testing sessions middleware'});
-})
+// router.get('/test', (req, res)=> {
+//   req.session.isAuth = true
+//  console.log(  Object.getOwnPropertyNames(req.session));
+//     //console.log(req.session);
+//     res.json({message : 'testing sessions middleware'});
+// })
 
 export default router;

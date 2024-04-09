@@ -148,27 +148,14 @@
 
           if (response.status == 422) {
 
-            var newData =  intermediateData.error;
-            gottenMessage = JSON.stringify(newData);
-
-            alert(gottenMessage)
+           alert(`error, response code ${response.status}`)
           } 
           else if (response.status == 400){
-            var newData =  intermediateData.message;
-            gottenMessage = JSON.stringify(newData);
-            alert(gottenMessage);
+            alert(`error, response code ${response.status}`)
           } 
           else if (response.status == 200){
-            var newData =  intermediateData.message;
-            var newToken = intermediateData.token
-            gottenMessage = JSON.stringify(newData);
-            gottenToken = JSON.stringify(newToken);
-
-            Authheader = {
-            authorization : `Bearer ${gottenToken}`
-          }
-          alert(gottenToken);
-          window.location.href = "http://localhost:9000/profilepage";
+          
+          window.location.href = "http://localhost:9000/onboarding";
           }
           
 

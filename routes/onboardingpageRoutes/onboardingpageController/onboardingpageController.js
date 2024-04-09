@@ -38,22 +38,12 @@ async function loginController (req, res){
         return res.status(401).json({error: 'Incorrect email or password.'});
     }
 
-    const tokenAccess = Jwt.sign({ userId: loggedinUser._id}, jwtsecretAccess, {
-        expiresIn: 600 // 600 seconds is 10 minutes;
-    },);
-   // He (whoever is working on the frontend) can set a timeout to refresh the clients token before the Access token timesout.
-    const tokenRefresh = Jwt.sign({userId: loggedinUser._id}, jwtsecretRefresh, {
-        expiresIn: expiresInVariable
-    })
-
-    // TODO: Redirect to the profile page.
-
-    //Refresh Token should be a different jwt.
-    res.status(200).cookie('_refresh_token', `Bearer ${tokenRefresh}`,{
-        expiresIn: expiresInVariable,
-        httpOnly: true,
-    } ).json({token:tokenAccess});
-
+   
+    req.session.isAuth = true
+   
+    res.status(200).json({message: 'you have logged in successfully'});
+    // Again, in the frontend, check for a 200 status code and 
+    // navigate to whatever protected page you want.
      
     
 

@@ -145,7 +145,7 @@
           const password = document.getElementById("usersafeword").value;
           const requestBody = JSON.stringify({email: email, password: password});
 
-          //alert(requestBody);
+       
              try {
               // goes to onboarding routes to get access token 
               // and refresh token 
@@ -166,36 +166,11 @@
 
           if (response.status == 200) {
 
-       
-          var newData =  intermediateData.token;
-          gottenToken = JSON.stringify(newData);
+          alert('you have logged in');
 
-          Authheader = {
-            authorization : `Bearer ${gottenToken}`
-          }
-          alert(gottenToken);
+          window.location.href = `http://localhost:9000/profilepage`
 
-          // Trigger a redirect.
-          
-          // var response = await fetch("http://localhost:9000/profilepage", {
-          //   method: 'GET',
-          //   //mode: "cors",
-          //   //body:requestBody,
-          //   credentials:"include",
-
-          //   // remember to set credentials to true.
-          //   headers: {
-          //     'Content-Type' : "application/json",
-          //     authorization : `Bearer ${gottenToken}`
-              
-          //   }
-          // });
-
-          window.location.href = `http://localhost:9000/profilepage?token=${gottenToken}`
-
-           } else if (response.status == 401){
-            alert('This is intermediate data   '+ JSON.stringify(intermediateData.error));
-           }
+           } 
          
        
 
