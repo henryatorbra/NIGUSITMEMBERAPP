@@ -31,13 +31,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: store,
-}), (req, res, next)=> {
-    console.log('sessions middleware ran.')
-    next();
-})
+}))
 //app.use(cookieParser());
 app.use("/signup", signupRouter);
-app.use("/onboarding", onboardingRouter);
+app.use("/onboarding",onboardingRouter);
 app.use("/subscriptionstatus", subscriptionstatusRouter);
 app.use("/qrcode", qrcodeRouter);
 app.use("/purchases", purchasesRouter);

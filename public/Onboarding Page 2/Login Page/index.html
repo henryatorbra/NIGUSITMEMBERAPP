@@ -60,24 +60,17 @@
         <h1 class="welcome-back">Welcome back!</h1>
         <div class="log-in-to">Log In to your account</div>
       </div>
-
-       
       <section class="frame-parent">
-        <form > 
         <div class="rectangle-parent">
-          <input type="text" placeholder="Enter your email" id="name" />
+          <input type="text" placeholder="Enter your email" id="email" />
         </div>
         <div class="frame-group">
           <div class="rectangle-group">
-            <input type="password" placeholder="Enter your password" id="usersafeword"/>
+            <input type="password" placeholder="Enter your password" id="password" />
           </div>
-        </form>
-        
           <div class="frame-container">
             <div class="forget-password-link-parent">
               <div class="forget-password-link">
-
-             
                 <img
                   class="log-in-button"
                   loading="lazy"
@@ -133,63 +126,55 @@
       </section>
     </div>
 
-    <script>
+    <script type="text/javascript">
       var groupButton = document.getElementById("groupButton");
-      let gottenToken;
-      let Authheader;
       if (groupButton) {
         groupButton.addEventListener("click", async function (e) {
           // Please sync "signup successful" to the project
+          // make api post request.
 
-          const email = document.getElementById("name").value;
-          const password = document.getElementById("usersafeword").value;
-          const requestBody = JSON.stringify({email: email, password: password});
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
 
-       
-             try {
-              // goes to onboarding routes to get access token 
-              // and refresh token 
-              // the second fetch is supposed to trigger a redirect to the 
-              // profile page.
-              // let us hope it works.
-         var response = await fetch('http://localhost:9000/onboarding', {
+          const requestBody = JSON.stringify({
+           email: email,
+           password: password,
+            
+          });
+
+          var response =  await fetch('http://localhost:9000/onboarding', {
             method: 'POST',
             //mode: "cors",
-            body:requestBody,
+            body: requestBody,
             headers: {
               'Content-Type' : "application/json",
             }
           });
 
-          var data = await response.text()
+          var data = await response.text();
           var intermediateData = JSON.parse(data)
 
-          if (response.status == 200) {
+          switch (response.status) {
+            case 401:
+              alert('Invalid username or password');
+              break;
+            case 200:
+              alert('login Successful');
+              window.location.href = "http://localhost:9000/profilepage";
 
-          alert('you have logged in');
-
-          window.location.href = `http://localhost:9000/profilepage`
-
-           } 
-         
-       
-
-        } catch (error) {
-          alert("this is error  "+ error);
-        };
-       
-       
-          
-        
- });
+              break;
+            
+          }
+        });
       }
       
       var donttHaveAn = document.getElementById("donttHaveAn");
       if (donttHaveAn) {
         donttHaveAn.addEventListener("click", function (e) {
-          window.location.href = "http://localhost:9000/signup";
+          window.location.href = "./login-page1.html";
         });
       }
+      alert('the thing was clicked');
     </script>
   </body>
 </html>
