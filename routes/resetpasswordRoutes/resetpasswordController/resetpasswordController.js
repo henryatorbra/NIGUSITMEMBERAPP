@@ -42,7 +42,7 @@ async function resetpasswordController (req,res){
             var salt =  await bcrypt.genSalt(10);
             var hash = await bcrypt.hash(newpassword, salt);
 
-            Nedu123456789
+           
 
         
 
