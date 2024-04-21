@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="505259484700-69o5mahh8e8nn1341qip7r6dp9t8rp8b.apps.googleusercontent.com">
+
 
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="./index.css" />
@@ -111,7 +115,9 @@
             <section class="google-login-parent">
               <div class="log-in-with-your-google-accoun-wrapper">
                   <div class="google-login-content">
-                      <a href="#" class="log-in-with">Log in with your Google account</a>
+                      <!-- <a href="#" class="log-in-with">Log in with your Google account</a> -->
+                      <!-- main login with google account -->
+                      <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>  -->
                   </div>
               </div>
             </section>
@@ -144,6 +150,17 @@
         });
       }
       alert('the thing was clicked');
+
+// google sign in functions.
+
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
     </script>
   </body>
 </html>

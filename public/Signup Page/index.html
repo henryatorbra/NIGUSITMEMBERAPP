@@ -4,6 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload"
+         data-client_id="505259484700-69o5mahh8e8nn1341qip7r6dp9t8rp8b.apps.googleusercontent.com"
+         
+         data-login_uri="http://localhost:9000/onboarding/googlelogin"
+         
+         data-use_fedcm_for_prompt="true">
+
+    </div>
+
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="./signup-page.css" />
     <link
@@ -101,8 +111,10 @@
         <div class="frame-child79"></div>
         <div class="log-in3">Log In</div>
       </button>
-    </div>
 
+      <div class="g_id_signin" data-type="standard"></div>
+    </div>
+      
     <script>
       // SIGNUP PAGE SIGNUP PAGE SIGNUP PAGE SIGNUP PAGE!!!!!!
       var groupButton = document.getElementById("groupButton");
@@ -128,6 +140,8 @@
             password: password,
             
           });
+
+          
 
           //alert(requestBody);
              try {

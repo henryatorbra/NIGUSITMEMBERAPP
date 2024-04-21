@@ -8,17 +8,20 @@ import passwordRouter from "./routes/passwordRoutes/passwordRouter.js"
 import logoutRouter from "./routes/logoutRoutes/logoutRouter.js"
 import affiliatedbusinessesRouter from "./routes/affiliatedbusinessesRoutes/affilitatedbusinessesRouter.js" ;
 import profileRouter from "./routes/profileRoutes/profileRouter.js"
+import googleusercreatepasswordRouter from "./routes/googleusercreatepasswordRoute/googleusercreatepasswordRoute.js"
+import resetpasswordRouter from "./routes/resetpasswordRoutes/resetpasswordRouter.js"
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import MongodbSession from "connect-mongodb-session";
 dotenv.config();
+const PORT = process.env.PORT || 9000;
 
 const app = express();
 var mongooseUrl = process.env.DATABASE_URL;
 
-const PORT = process.env.PORT || 9000;
+
 const MongoDBSession = MongodbSession(session);
 const store = new MongoDBSession({
     uri: mongooseUrl,
@@ -32,16 +35,19 @@ app.use(session({
     saveUninitialized: false,
     store: store,
 }))
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use("/signup", signupRouter);
 app.use("/onboarding",onboardingRouter);
 app.use("/subscriptionstatus", subscriptionstatusRouter);
 app.use("/qrcode", qrcodeRouter);
 app.use("/purchases", purchasesRouter);
-app.use("/resetpassword", passwordRouter);
+app.use("/resetpassword", resetpasswordRouter);
 app.use("/logout", logoutRouter);
 app.use("/affiliatedbusinesses", affiliatedbusinessesRouter);
 app.use("/profilepage", profileRouter );
+app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
+
+// the google sign in button in the login page and sign up page share the same end point.
 
 app.get('/', (req, res) => {
     console.log(`home route was hit`);

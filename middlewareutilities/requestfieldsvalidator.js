@@ -2,7 +2,7 @@ import Joi from "joi";
 
 function requestfieldvalidator (schema){
     return (req, res, next) => {
-        //console.log(req.body)
+       // console.log(req.body)
         const {error} = schema.validate(req.body);
         const valid = error == null;
 
@@ -14,7 +14,7 @@ function requestfieldvalidator (schema){
             const { details } = error;
             const message = details.map(i => i.message).join(',');
 
-            res.status(422).json({error: message + "Credentials do not match "});
+            res.status(422).json({error: message});
 
         }
 

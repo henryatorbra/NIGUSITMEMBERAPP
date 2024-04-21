@@ -2,7 +2,7 @@ import { Router } from "express";
 import express from "express";
 import authChecker from "../../middlewareutilities/authChecker.js";
 
-                                            // middlewareutilities/signupfieldsvalidator.js
+// middlewareutilities/signupfieldsvalidator.js
 import bodyParser from "body-parser";
 
 const router = Router()

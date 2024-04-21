@@ -74,10 +74,10 @@
       <section class="password-reset-child">
         <div class="frame-parent20">
           <label class="rectangle-parent24">
-            <input type="password" class="enter-current-password" placeholder="Enter current password" />
+            <input type="password" class="enter-current-password" placeholder="Enter current password" id="currentpassword" />
           </label>
           <label class="rectangle-parent25">
-            <input type="password" class="enter-new-password" placeholder="Enter new password" />
+            <input type="password" class="enter-new-password" placeholder="Enter new password" id="newpassword"/>
           </label>
           <div class="frame-parent21">
             <label class="rectangle-parent26">
@@ -102,14 +102,64 @@
       var groupIcon = document.getElementById("groupIcon");
       if (groupIcon) {
         groupIcon.addEventListener("click", function (e) {
+          e.preventDefault()
           window.location.href = "./profile.html";
         });
       }
       
       var groupButton = document.getElementById("groupButton");
       if (groupButton) {
-        groupButton.addEventListener("click", function (e) {
-          window.location.href = "./password-successful.html";
+        groupButton.addEventListener("click", async function (e) {
+    
+          e.preventDefault()
+
+          const currentpassword = document.getElementById("currentpassword").value;
+          const newpassword = document.getElementById("newpassword").value;
+
+          const requestBody = JSON.stringify({
+            newpassword: newpassword,
+            oldpassword: currentpassword,
+            
+          });
+
+                   //alert(requestBody);
+                   try {
+
+var response =  await fetch('http://localhost:9000/resetpassword', {
+   method: 'POST',
+   //mode: "cors",
+   body: requestBody,
+   headers: {
+     'Content-Type' : "application/json",
+   }
+ });
+
+ var data = await response.text();
+ var intermediateData = JSON.parse(data)
+
+
+
+ if (response.status == 422) {
+
+  alert(`error, response code ${response.status} ${intermediateData.error}`)
+ } 
+ else if (response.status == 400){
+   alert(`error, response code ${intermediateData.error}`)
+ } 
+ else if (response.status == 200){
+ // this might be an error.
+ alert("password change successful");
+ window.location.href = "./Password Reset Page/Password Successful page ";
+ }
+ 
+
+
+} catch (error) {
+ alert("this is error on signup page:  " + error);
+};
+
+
+          // window.location.href = "./password-successful.html";
         });
       }
     </script>

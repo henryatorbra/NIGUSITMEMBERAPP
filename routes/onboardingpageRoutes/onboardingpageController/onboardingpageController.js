@@ -36,14 +36,20 @@ async function loginController (req, res){
 
     if (!correctPassword)  {
         return res.status(401).json({error: 'Incorrect email or password.'});
+    }else{
+    req.session.isAuth = true;
+    req.session.email = loggedinUser.email; 
+      // Again, in the frontend, check for a 200 status code and 
+    // navigate to whatever protected page you want.
+   
+    res.status(200).json({message: 'you have logged in successfully'});
+
+
     }
 
    
-    req.session.isAuth = true
-   
-    res.status(200).json({message: 'you have logged in successfully'});
-    // Again, in the frontend, check for a 200 status code and 
-    // navigate to whatever protected page you want.
+    
+  
      
     
 

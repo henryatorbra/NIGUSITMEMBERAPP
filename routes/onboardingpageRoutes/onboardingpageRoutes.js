@@ -3,6 +3,7 @@ import  express  from "express";
 import loginController from "./onboardingpageController/onboardingpageController.js";
 import loginfieldsvalidationschema from "../../models/validationschemas/loginfieldsvalidationschema.js";
 import requestfieldvalidator from "../../middlewareutilities/requestfieldsvalidator.js";
+import googleLoginController from "./googleloginController/googleloginController.js";
 import bodyParser from "body-parser";
 
 
@@ -22,6 +23,8 @@ router.use(express.static('public/Onboarding Page 2'));
 // But the route that login credentials are sent to are handled by the onboarding page route but with a loginController.
 // you can see it after the request validator middleware "loginController".
 router.post('/', requestfieldvalidator(loginfieldsvalidationschema),loginController);
+// There will be no request field validator here because, I mean, it's google they'll always give you proper credentials.
+router.post('/googlelogin', googleLoginController);
 
 // router.get('/test', (req, res)=> {
 //   req.session.isAuth = true

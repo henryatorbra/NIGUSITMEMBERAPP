@@ -39,14 +39,33 @@
       var popupgroupButton = document.getElementById("popupgroupButton");
       if (popupgroupButton) {
         popupgroupButton.addEventListener("click", function (e) {
-          window.location.href = "./profile.html";
+          window.location.href = "http://localhost:9000/profilepage";
         });
       }
       
       var popupgroupButton1 = document.getElementById("popupgroupButton1");
       if (popupgroupButton1) {
-        popupgroupButton1.addEventListener("click", function (e) {
-          window.location.href = "./login-page.html";
+        popupgroupButton1.addEventListener("click", async function (e) {
+
+          var response =  await fetch('http://localhost:9000/logout', {
+            method: 'POST',
+            //mode: "cors",
+            
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          switch (response.status) {
+            case 200:
+            window.location.href = "http://localhost:9000/onboarding";
+              break;
+          
+            default:
+              alert(response.status)
+              break;
+          }
+          
         });
       }
       </script>

@@ -12,7 +12,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 router.use(authChecker,express.static('public/Log out options page'));
 
-router.post('/',logoutController);
+router.post('/',authChecker,logoutController);
 
 
 export default router;

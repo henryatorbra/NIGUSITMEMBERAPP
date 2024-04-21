@@ -1,4 +1,5 @@
 
+
 import mongoose from "mongoose";
 
 const signupuserSchema = new mongoose.Schema({
@@ -12,7 +13,8 @@ const signupuserSchema = new mongoose.Schema({
     },
     phone: String,
     password: String,
-    active: Boolean,
+    active: {type: Boolean, default: true},
+    googlesignedin : {type: Boolean, default: false}
 })
 
 const signupUserModel = mongoose.model('User', signupuserSchema);
