@@ -39,7 +39,7 @@
       var popupgroupButton = document.getElementById("popupgroupButton");
       if (popupgroupButton) {
         popupgroupButton.addEventListener("click", function (e) {
-          window.location.href = "http://localhost:9000/profilepage";
+          window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
         });
       }
       
@@ -47,7 +47,7 @@
       if (popupgroupButton1) {
         popupgroupButton1.addEventListener("click", async function (e) {
 
-          var response =  await fetch('http://localhost:9000/logout', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/logout', {
             method: 'POST',
             //mode: "cors",
             
@@ -58,7 +58,7 @@
 
           switch (response.status) {
             case 200:
-            window.location.href = "http://localhost:9000/onboarding";
+            window.location.href = "https://nigusitmemberapp.onrender.com/onboarding";
               break;
           
             default:
