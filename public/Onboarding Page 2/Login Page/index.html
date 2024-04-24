@@ -160,7 +160,7 @@
             
           });
 
-          var response =  await fetch('http://localhost:9000/onboarding', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/onboarding', {
             method: 'POST',
             //mode: "cors",
             body: requestBody,
@@ -178,7 +178,7 @@
               break;
             case 200:
               alert('login Successful');
-              window.location.href = "http://localhost:9000/profilepage";
+              window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
 
               break;
             
