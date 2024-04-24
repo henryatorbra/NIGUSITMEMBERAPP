@@ -9,7 +9,7 @@ dotenv.config();
 const googleClientId = process.env.GOOGLE_CLIENT_TOKEN;
 const port = process.env.PORT;
 const hostName = process.env.HOST_NAME;
-const passwordRedirectUrl = `${hostName}${port}/googleusercreatepassword`;
+const passwordRedirectUrl = `https://nigusitmemberapp.onrender.com/googleusercreatepassword`;
 const profileRedirectUrl = "https://nigusitmemberapp.onrender.com/profilepage";
 
 
