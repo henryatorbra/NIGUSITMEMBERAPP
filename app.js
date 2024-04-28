@@ -47,6 +47,7 @@ app.use("/logout", logoutRouter);
 app.use("/affiliatedbusinesses", affiliatedbusinessesRouter);
 app.use("/profilepage", profileRouter );
 app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
+app.use("/membership-status", )
 
 // the google sign in button in the login page and sign up page share the same end point.
 
