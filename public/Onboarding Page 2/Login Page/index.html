@@ -189,29 +189,12 @@
       var donttHaveAn = document.getElementById("donttHaveAn");
       if (donttHaveAn) {
         donttHaveAn.addEventListener("click", function (e) {
-          window.location.href = "./login-page1.html";
+          window.location.href = "https://nigusitmemberapp.onrender.com/signup";
         });
       }
-      alert('the thing was clicked');
-      function decodeJwtResponse (){
-
-      }
-      const decode = token => decodeURIComponent(atob(token.split('.')[1].replace('-', '+').replace('_', '/')).split('').map(c => `%${('00' + c.charCodeAt(0).toString(16)).slice(-2)}`).join(''));
-      
-      function onSignIn(response) {
-        //console.log('signed in');
-        const responsePayload = JSON.parse(decode(response.credential));
-
-        //console.log(responsePayload)
-
-        // console.log("ID: " + responsePayload.sub);
-        // console.log('Full Name: ' + responsePayload.name);
-        console.log('Given Name: ' + responsePayload.given_name);
-        // console.log('Family Name: ' + responsePayload.family_name);
-        // console.log("Image URL: " + responsePayload.picture);
-        // console.log("Email: " + responsePayload.email);
-
-        }
+     
+     
+        
 
     </script>
   </body>
