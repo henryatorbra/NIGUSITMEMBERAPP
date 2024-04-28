@@ -34,6 +34,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: store,
+    maxAge: 15 * 60 * 1000
 }))
 app.use(cookieParser());
 app.use("/signup", signupRouter);
