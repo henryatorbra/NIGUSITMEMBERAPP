@@ -155,9 +155,28 @@
       
       var popupgroupButton1 = document.getElementById("popupgroupButton1");
       if (popupgroupButton1) {
-        popupgroupButton1.addEventListener("click", function (e) {
-          window.location.href = "./login-page.html";
+        popupgroupButton1.addEventListener("click", async function (e) {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/logout', {
+            method: 'POST',
+            //mode: "cors",
+            
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          switch (response.status) {
+            case 200:
+            window.location.href = "https://nigusitmemberapp.onrender.com/onboarding";
+              break;
+          
+            default:
+              alert(response.status)
+              break;
+          }
+          
         });
+      
       }
       
       var groupContainer = document.getElementById("groupContainer");

@@ -37,7 +37,7 @@ app.use(session({
 }))
 app.use(cookieParser());
 app.use("/signup", signupRouter);
-app.use("/onboarding",onboardingRouter);
+app.use("/",onboardingRouter);
 app.use("/subscriptionstatus", subscriptionstatusRouter);
 app.use("/qrcode", qrcodeRouter);
 app.use("/purchases", purchasesRouter);
@@ -49,10 +49,10 @@ app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
 
 // the google sign in button in the login page and sign up page share the same end point.
 
-app.get('/', (req, res) => {
-    console.log(`home route was hit`);
-    res.send('working')
-})
+// app.get('/', (req, res) => {
+//     console.log(`home route was hit`);
+//     res.send('working')
+// })
 
 
  mongoose.connect(mongooseUrl).then(()=> {
