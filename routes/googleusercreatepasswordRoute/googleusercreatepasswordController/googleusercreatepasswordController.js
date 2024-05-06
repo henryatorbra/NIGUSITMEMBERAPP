@@ -23,11 +23,20 @@ async function googleCreatePasswordController (req, res, next){
             password: hash
         }
 
+
+         
+        try {
         var createdUser =  await signupUserModel.create(userDetails);
-
+            
+        } catch (error) {
+            res.status(400).send({message: "There was an error"});
+        }
         req.session.isAuth = true;
+        req.session.active = createdUser.active;
+        req.session.subscribedAt = createdUser.subscribedAt;
+        
 
-        console.log("finished creating");
+        //console.log("finished creating");
 
         res.status(200).json({message: "User Logged in successfully"});
         

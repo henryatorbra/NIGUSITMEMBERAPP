@@ -2,6 +2,7 @@ import { OAuth2Client } from "google-auth-library";
 import dotenv from "dotenv";
 import signupUserModel from "../../../models/signupmodels/signupmodels.js";
 import bcrypt from "bcrypt";
+import sessionStateModifier from "../../../functionutilities/sessionstate.js";
 dotenv.config();
 
 
@@ -74,8 +75,9 @@ async function googleLoginController (req, res){
     // get email from the userDetailsFromGoogle and 
     // search database to see if the user email exists
     var emailFromGoogle = userDetailsFromGoogle.email
-    var userFromDb = await signupUserModel.findOne({email: emailFromGoogle}).select("email password");
-
+    var userFromDb = await signupUserModel.findOne({email: emailFromGoogle});
+    // console.log("this is user details"+ userFromDb)
+    // var userEmailFromDb = userFromDb.email
     // If the user does not exist,
     // trigger a redirect through any of the various means,
     // to get him to set a password.
@@ -111,11 +113,15 @@ async function googleLoginController (req, res){
         // If the user exists, then the user already has a password.
         // We can decide later to grab some data from the google OAuthClient.
         // But for now, we just mutate the req.sessions object and log him in.
-
+        // console.log(
+        // userEmailFromDb
+        // )
         req.session.isAuth = true;
-        req.session.email = userDetailsFromGoogle.email;
-        req.session.firstname = userDetailsFromGoogle.given_name;
-        req.session.lastname = userDetailsFromGoogle.family_name;
+        req.session.email = userFromDb.email;
+        req.session.firstname = userFromDb.firstname;
+        req.session.lastname = userFromDb.lastname;
+        req.session.active = userFromDb.active;
+        req.session.subscribedAt = userFromDb.subscribedAt;
         
         res.status(200).redirect(profileRedirectUrl);
         

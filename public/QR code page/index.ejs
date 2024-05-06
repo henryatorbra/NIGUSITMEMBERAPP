@@ -38,15 +38,15 @@
                 class="circle-child"
                 loading="lazy"
                 alt=""
-                src="C:\Users\uswe\OneDrive\Desktop\WEB APP\QR code page\Resources\1-intro-photo-final.jpg"
+                src="Resources\1-intro-photo-final.jpg"
               />
 
               <div class="person-icon-wrapper">
                 <div class="person-icon">
                   <div class="john-eddie-wrapper">
-                    <b class="john-eddie">John Eddie</b>
+                    <b class="john-eddie"> <%= name %></b>
                   </div>
-                  <div class="john-eddie1">@John Eddie</div>
+                  <div class="john-eddie1"><%= email %></div>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
                 class="istockphoto-828088276-612x612-icon"
                 loading="lazy"
                 alt=""
-                src="C:\Users\uswe\OneDrive\Desktop\WEB APP\QR code page\Resources\QR_code_for_mobile_English_Wikipedia-1400x700.jpg"
+                src= <%= qrcode %>
               />
             </div>
           </div>

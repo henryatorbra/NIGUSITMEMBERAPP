@@ -29,6 +29,16 @@ const store = new MongoDBSession({
 
 })
 
+// https://nigusitmemberapp.onrender.com/
+
+// https://nigusitmemberapp.onrender.com/
+
+// register view engines.
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
+app.set('views', 'public'); // set views to public
+
 app.use(session({
     secret: 'tesing secret',
     resave: false,
@@ -38,7 +48,7 @@ app.use(session({
 }))
 app.use(cookieParser());
 app.use("/signup", signupRouter);
-app.use("/",onboardingRouter);
+app.use("/",onboardingRouter);// this
 app.use("/subscriptionstatus", subscriptionstatusRouter);
 app.use("/qrcode", qrcodeRouter);
 app.use("/purchases", purchasesRouter);
@@ -47,6 +57,10 @@ app.use("/logout", logoutRouter);
 app.use("/affiliatedbusinesses", affiliatedbusinessesRouter);
 app.use("/profilepage", profileRouter );
 app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
+
+app.get("/ejs", (req,res)=>{
+    res.render('views', {title: 'This is ejs test'});
+})
 
 
 // the google sign in button in the login page and sign up page share the same end point.
@@ -59,9 +73,10 @@ app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
 
  mongoose.connect(mongooseUrl).then(()=> {
     app.listen(PORT, ()=> {
+        console.log(mongooseUrl)
         console.log(`server listening on ${PORT}`);
     })
  }).catch((e)=> {
-    console.log
+    console.log(e)
  });
 

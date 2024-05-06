@@ -4,6 +4,7 @@ import signupUserModel from "../../../models/signupmodels/signupmodels.js";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import  Jwt from "jsonwebtoken";
+import sessionStateModifier from "../../../functionutilities/sessionstate.js";
 dotenv.config();
 
 const jwtsecretAccess = process.env.JWT_SECRET_ACCESS;
@@ -37,8 +38,10 @@ async function loginController (req, res){
     if (!correctPassword)  {
         return res.status(401).json({error: 'Incorrect email or password.'});
     }else{
-    req.session.isAuth = true;
-    req.session.email = loggedinUser.email; 
+        // Modify Session with helper function;
+      const modifiedSession = sessionStateModifier(req, loggedinUser)// a helper function that modifies the session for me.
+
+
       // Again, in the frontend, check for a 200 status code and 
     // navigate to whatever protected page you want.
    

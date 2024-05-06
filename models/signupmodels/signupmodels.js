@@ -14,7 +14,8 @@ const signupuserSchema = new mongoose.Schema({
     phone: String,
     password: String,
     active: {type: Boolean, default: true},
-    googlesignedin : {type: Boolean, default: false}
+    googlesignedin : {type: Boolean, default: false},
+    subscribedAt: {type: Date, default: null},
 })
 
 const signupUserModel = mongoose.model('User', signupuserSchema);

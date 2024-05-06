@@ -24,7 +24,7 @@
             class="frame-child12"
             loading="lazy"
             alt=""
-            src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Status Page\Resources\icons8-arrow-left-50 (1).png"
+            src="Resources\icons8-arrow-left-50 (1).png"
             id="groupIcon"
           />
         </div>
@@ -37,22 +37,22 @@
               class="ellipse-icon"
               loading="lazy"
               alt=""
-              src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Status Page\Resources\1-intro-photo-final.jpg"
+              src="Resources\1-intro-photo-final.jpg"
             />
           </div>
           <div class="frame-parent5">
             <div class="john-eddie-container">
-              <b class="john-eddie2">John Eddie</b>
+              <b class="john-eddie2"><%= name %></b>
             </div>
-            <div class="john-eddie3">@John Eddie</div>
+            <div class="john-eddie3">  <%= email %> </div>
           </div>
         </div>
       </section>
       <section class="membership-status-child">
         <div class="active-subscriber-parent">
-          <b class="active-subscriber">ACTIVE SUBSCRIBER</b>
+          <b class="active-subscriber"> <%= subscriberState %> </b>
           <div class="expiry-date-label">
-            <div class="until-30th-march">until 30th March, 2024</div>
+            <div class="until-30th-march">  <%= newdate %> </div>
           </div>
         </div>
       </section>
@@ -60,11 +60,11 @@
         <div class="renew-deactivate-parent">
           <button class="renew-deactivate">
             <div class="renew-deactivate-child"></div>
-            <div class="renew">RENEW</div>
+            <div class="renew" id="renew">RENEW</div>
           </button>
           <button class="rectangle-parent8">
             <div class="frame-child13"></div>
-            <div class="deactivate">DEACTIVATE</div>
+            <div class="deactivate" id="deactivate">DEACTIVATE</div>
           </button>
         </div>
       </section>
@@ -75,6 +75,54 @@
       if (groupIcon) {
         groupIcon.addEventListener("click", function (e) {
           // Please sync "profile" to the project
+        });
+      }
+      // RENEW BUTTON;
+      var renew = document.getElementById("renew");
+      if (renew) {
+        renew.addEventListener("click", async function (e) {
+          // Please sync "profile" to the project
+          
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/subscriptionstatus/renew', {
+            method: 'POST',
+            //mode: "cors",
+            body: JSON.stringify({
+              renew: true,
+            }),
+            credentials : "include",
+            headers: {
+              'Content-Type' : "application/json",
+            }
+
+          });
+
+          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com/subscriptionstatus/' : alert("something went wrong")
+        });
+      }
+
+
+
+      // DEACTIVATE BUTTON;
+      var deactivate = document.getElementById("deactivate");
+      if (deactivate) {
+        deactivate.addEventListener("click", async function (e) {
+          // Please sync "profile" to the project
+         
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/subscriptionstatus/deactivate', {
+            method: 'POST',
+            //mode: "cors",
+            body: JSON.stringify({
+              deactivate: true
+            }),
+            credentials : "include",
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com/subscriptionstatus/' : alert("something went wrong")
+
+
         });
       }
       </script>

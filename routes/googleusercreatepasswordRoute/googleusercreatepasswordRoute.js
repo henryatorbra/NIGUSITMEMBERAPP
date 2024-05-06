@@ -3,6 +3,7 @@ import  express  from "express";
 import googleusercreatepasswordvalidationschema from "../../models/validationschemas/googleusercreatepasswordvalidationschema.js";
 import googleCreatePasswordController from "./googleusercreatepasswordController/googleusercreatepasswordController.js";
 import requestfieldvalidator from "../../middlewareutilities/requestfieldsvalidator.js";
+import authChecker from "../../middlewareutilities/authChecker.js";
 import bodyParser from "body-parser";
 
 
