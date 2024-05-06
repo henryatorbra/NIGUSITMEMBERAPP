@@ -18,7 +18,7 @@ async function loginController (req, res){
    // good reason for their existence, please do well to remove it. Thanks.
 
      const userDetails = req.body;
-    var loggedinUser =  await signupUserModel.findOne({email: userDetails.email}).select("email password");
+    var loggedinUser =  await signupUserModel.findOne({email: userDetails.email});
 
     console.log('This is the logged in user  '+ loggedinUser);
 
