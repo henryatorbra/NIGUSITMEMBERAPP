@@ -10,7 +10,7 @@ dotenv.config();
 const googleClientId = process.env.GOOGLE_CLIENT_TOKEN;
 const port = process.env.PORT;
 const hostName = process.env.HOST_NAME;
-const passwordRedirectUrl = `https://nigusitmemberapp.onrender.com/googleusercreatepassword`;
+const passwordRedirectUrl = `/googleusercreatepassword`;
 const profileRedirectUrl = "/profilepage";
 
 
@@ -127,11 +127,14 @@ async function googleLoginController (req, res){
         req.session.userId = userFromDb._id;
 
 
-
+        var dummydestination = req.session.destinationurl;
+        req.session.destinationurl = profileRedirectUrl;
         console.log(`this is the req url ${req.session.destinationurl}`);
         console.log(`${process.env.HOST_NAME}${req.session.destinationurl ? req.session.destinationurl : passwordRedirectUrl}`);
         
-        res.status(200).redirect(`${process.env.HOST_NAME}${req.session.destinationurl ? req.session.destinationurl : profileRedirectUrl}`);
+        res.status(200).redirect(`${process.env.HOST_NAME}${dummydestination ? dummydestination : profileRedirectUrl}`);
+
+
         
         
     }

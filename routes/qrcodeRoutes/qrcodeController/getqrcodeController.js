@@ -10,7 +10,7 @@ async function  getqrcodeController (req, res){
     //console.log("getqrcodeController was hit")
     const email = req.session.email
     const name = `${req.session.firstname} ${req.session.lastname}`
-    const url = `http://${hostname}9000/qrcode/userfromqrcode?email=${email}`
+    const url = `${hostname}/qrcode/userfromqrcode?email=${email}`
 
 
     try {
