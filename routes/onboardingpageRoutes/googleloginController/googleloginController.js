@@ -129,9 +129,9 @@ async function googleLoginController (req, res){
 
 
         console.log(`this is the req url ${req.session.destinationurl}`);
-        console.log(`${process.env.HOST_NAME}${process.env.PORT}${req.session.destinationurl ? req.session.destinationurl : passwordRedirectUrl}`);
+        console.log(`${process.env.HOST_NAME}${req.session.destinationurl ? req.session.destinationurl : passwordRedirectUrl}`);
         
-        res.status(200).redirect(`${process.env.HOST_NAME}${process.env.PORT}${req.session.destinationurl ? req.session.destinationurl : profileRedirectUrl}`);
+        res.status(200).redirect(`${process.env.HOST_NAME}${req.session.destinationurl ? req.session.destinationurl : profileRedirectUrl}`);
         
         
     }

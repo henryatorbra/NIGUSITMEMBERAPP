@@ -17,7 +17,7 @@ function authChecker (req, res, next){
     }else {
         req.session.destinationurl = req.originalUrl;
         console.log(`This is the request url`+req.originalUrl + `from auth checker`)
-        res.redirect(`${domain}${process.env.PORT}/`);
+        res.redirect(`${process.env.HOST_NAME}/`);
         return;
     }
 
