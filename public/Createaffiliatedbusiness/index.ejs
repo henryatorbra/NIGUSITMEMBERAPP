@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./business-page2.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="business-page2">
+      <main class="rectangle-parent41">
+        <div class="frame-child99"></div>
+        <div class="content-area">
+          <div class="willows-cafe5">WILLOW’S CAFE</div>
+        </div>
+        <section class="business-details">
+          <b class="business-bio">Business Bio</b>
+          <div class="about-us">
+            <div class="image-placeholder"></div>
+            <label 
+            for="businessname"> 
+          </label>
+            <input 
+            type="text", 
+            id="businessname", 
+            name="businessname" 
+            placeholder="Business Name" 
+            class="willows-caf-is2">
+
+            <label 
+            for="description"> 
+       
+
+          
+              
+            </div>
+          </label>
+          <input 
+          type="text", 
+          id="description", 
+          name="description" 
+          placeholder="Business Description" 
+         >
+
+          </div>
+        </section>
+        <section class="frame-parent32">
+          <div class="info-positioning-parent">
+          
+            <b class="contact">Address :</b>
+            <div class="dividers1">
+              <label for="address"></label>
+              <input
+                class="info-positioning"
+                placeholder="Address:"
+                type="text"
+                id="address"
+                name="address"
+              />
+            </div>
+          </div>
+       
+          <footer class="frame-footer">
+            <div class="contact-wrapper">
+              <b class="contact">Contact:</b>
+            </div>
+            <div class="frame-child100">
+              <label for="contact"></label>
+              <input
+                class="info-positioning"
+                placeholder="Contact :"
+                type="text"
+                id="contact"
+                name="contact"
+              />
+
+            </div>
+          </footer>
+        </section>
+      </main>
+      <div class="frame-parent33">
+        <div class="social-icons-wrapper">
+          <div class="social-icons">
+            <div class="icon-shape"></div>
+            <img
+              class="icon-shape1"
+              loading="lazy"
+              alt=""
+              src="./public/ellipse-35@2x.png"
+            />
+          </div>
+        </div>
+        <div class="engagement-area">
+          <div class="engagement-area-child"></div>
+          <img
+            class="engagement-area-item"
+            loading="lazy"
+            alt=""
+            src="./public/group-10.svg"
+          />
+
+          <div class="bookmark">
+            <div class="save" id="saveText">Save</div>
+
+          </div>
+       
+        </div>
+        
+      </div>
+    </div>
+
+    <script>
+      var saveText = document.getElementById("saveText");
+      if (saveText) {
+        saveText.addEventListener("click", async function (e) {
+          console.log("clikced save")
+          var description = document.getElementById("description").value;
+          var contact = document.getElementById("contact").value;
+          var address = document.getElementById("address").value;
+          var businessname = document.getElementById("businessname").value;
+
+        
+          const requestBody = JSON.stringify({
+           businessname: businessname,
+           description: description,
+           contact: contact,
+           address: address,
+
+            
+          });
+
+          var response =  await fetch('https://nigusitmemberapp.onrender.com//createaffliatedbusiness', {
+            method: 'POST',
+            //mode: "cors",
+            body: requestBody,
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          var data = await response.text();
+          var intermediateData = JSON.parse(data)
+
+          switch (response.status) {
+            case 401:
+              alert('Invalid credentials');
+              break;
+            case 200:
+              alert('created business Successful');
+              //window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
+
+              break;
+              case 422:
+              alert('Invalid credentials');
+              break;
+            
+          }
+          // window.location.href = "./business-page1.html";
+        });
+        console.log("finished save")
+
+      }
+      </script>
+  </body>
+</html>

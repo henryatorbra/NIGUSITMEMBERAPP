@@ -108,6 +108,17 @@
               <div class="password2">Password</div>
             </div>
           </div>
+
+          <div class="frame-parent20" id="myBusiness">
+            <button class="ellipse-parent9">
+              <div class="frame-child70"></div>
+              <img class="frame-child71" alt="" src="Resources\icons8-handshake-24.png" />
+            </button>
+            <div class="affiliated-businesses-wrapper">
+              <div class="affiliated-businesses1">My Businesses</div>
+            </div>
+          </div>
+
           <div class="frame-parent24" id="groupContainer5">
             <button class="ellipse-parent13">
               <div class="frame-child78"></div>
@@ -147,17 +158,24 @@
     </div>
 
     <script>
-      var popupgroupButton = document.getElementById("popupgroupButton");
+       var popupgroupButton = document.getElementById("myBusiness");
       if (popupgroupButton) {
         popupgroupButton.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
+          window.location.href = "https://nigusitmemberapp.onrender.com//myBusiness";
+        });
+      }
+
+      var myBusinessButton = document.getElementById("popupgroupButton");
+      if (myBusinessButton) {
+        myBusinessButton.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
         });
       }
       
       var popupgroupButton1 = document.getElementById("popupgroupButton1");
       if (popupgroupButton1) {
         popupgroupButton1.addEventListener("click", async function (e) {
-          var response =  await fetch('https://nigusitmemberapp.onrender.com/logout', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com//logout', {
             method: 'POST',
             //mode: "cors",
             
@@ -168,7 +186,7 @@
 
           switch (response.status) {
             case 200:
-            window.location.href = "https://nigusitmemberapp.onrender.com/";
+            window.location.href = "https://nigusitmemberapp.onrender.com//";
               break;
           
             default:
@@ -183,35 +201,35 @@
       var groupContainer = document.getElementById("groupContainer");
       if (groupContainer) {
         groupContainer.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/subscriptionstatus";
+          window.location.href = "https://nigusitmemberapp.onrender.com//subscriptionstatus";
         });
       }
       
       var groupContainer1 = document.getElementById("groupContainer1");
       if (groupContainer1) {
         groupContainer1.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/affiliatedbusinesses";
+          window.location.href = "https://nigusitmemberapp.onrender.com//affiliatedbusinesses";
         });
       }
       
       var groupContainer2 = document.getElementById("groupContainer2");
       if (groupContainer2) {
         groupContainer2.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/qrcode";
+          window.location.href = "https://nigusitmemberapp.onrender.com//qrcode";
         });
       }
       
       var groupContainer3 = document.getElementById("groupContainer3");
       if (groupContainer3) {
         groupContainer3.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/purchases";
+          window.location.href = "https://nigusitmemberapp.onrender.com//purchases";
         });
       }
       
       var groupContainer4 = document.getElementById("groupContainer4");
       if (groupContainer4) {
         groupContainer4.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/resetpassword";
+          window.location.href = "https://nigusitmemberapp.onrender.com//resetpassword";
         });
       }
       

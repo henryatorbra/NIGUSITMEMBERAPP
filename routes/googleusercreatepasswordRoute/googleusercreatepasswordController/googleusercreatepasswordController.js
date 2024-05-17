@@ -34,6 +34,7 @@ async function googleCreatePasswordController (req, res, next){
         req.session.isAuth = true;
         req.session.active = createdUser.active;
         req.session.subscribedAt = createdUser.subscribedAt;
+        req.session.userId = createdUser._id;
         
 
         //console.log("finished creating");

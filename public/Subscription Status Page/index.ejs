@@ -83,7 +83,7 @@
         renew.addEventListener("click", async function (e) {
           // Please sync "profile" to the project
           
-          var response =  await fetch('https://nigusitmemberapp.onrender.com/subscriptionstatus/renew', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com//subscriptionstatus/renew', {
             method: 'POST',
             //mode: "cors",
             body: JSON.stringify({
@@ -96,7 +96,7 @@
 
           });
 
-          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com/subscriptionstatus/' : alert("something went wrong")
+          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com//subscriptionstatus/' : alert("something went wrong")
         });
       }
 
@@ -108,7 +108,7 @@
         deactivate.addEventListener("click", async function (e) {
           // Please sync "profile" to the project
          
-          var response =  await fetch('https://nigusitmemberapp.onrender.com/subscriptionstatus/deactivate', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com//subscriptionstatus/deactivate', {
             method: 'POST',
             //mode: "cors",
             body: JSON.stringify({
@@ -120,7 +120,7 @@
             }
           });
 
-          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com/subscriptionstatus/' : alert("something went wrong")
+          response.status == 200 ? window.location = 'https://nigusitmemberapp.onrender.com//subscriptionstatus/' : alert("something went wrong")
 
 
         });

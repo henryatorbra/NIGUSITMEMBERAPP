@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./business-page1.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="business-page1">
+      <main class="main-content">
+        <div class="main-content-child"></div>
+        <div class="content-details">
+          <div class="willows-cafe4"><%= businessname %></div>
+        </div>
+        <section class="willows-caf-is-container1">
+          <p class="willows-caf-is1">
+            <%= description %>
+          </p>
+          <p class="blank-line2">&nbsp;</p>
+          <p class="address-located-at-123-tranqu1">
+            <b class="address1">Address:</b>
+            <span class="located-at-1231">
+              <%= address %>s</span
+            >
+          </p>
+          <p class="blank-line3">
+            <b>&nbsp;</b>
+          </p>
+          <p class="contact-555-123-45671">
+            <b>Contact:</b>
+            <span class="span3"> <%= contact %></span>
+          </p>
+        </section>
+      </main>
+      <div class="visuals">
+        <div class="image-area">
+          <div class="shape-one-parent">
+            <div class="shape-one"></div>
+            <img
+              class="shape-two-icon"
+              loading="lazy"
+              alt=""
+              src="./public/ellipse-35@2x.png"
+            />
+          </div>
+        </div>
+        <div class="user-actions">
+          <div class="user-actions-child"></div>
+          <img
+            class="user-actions-item"
+            loading="lazy"
+            alt=""
+            src="./public/group-10.svg"
+          />
+
+          <div class="edit-field">
+            <div class="edit" id="editText">Edit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var editText = document.getElementById("editText");
+      if (editText) {
+        editText.addEventListener("click", function (e) {
+          window.location.href = "./business-page2.html";
+        });
+      }
+      </script>
+  </body>
+</html>

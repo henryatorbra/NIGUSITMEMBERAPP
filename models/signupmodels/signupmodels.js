@@ -1,6 +1,6 @@
 
 
-import mongoose from "mongoose";
+import mongoose, { isObjectIdOrHexString } from "mongoose";
 
 const signupuserSchema = new mongoose.Schema({
     firstname: String,
@@ -16,6 +16,7 @@ const signupuserSchema = new mongoose.Schema({
     active: {type: Boolean, default: true},
     googlesignedin : {type: Boolean, default: false},
     subscribedAt: {type: Date, default: null},
+    
 })
 
 const signupUserModel = mongoose.model('User', signupuserSchema);

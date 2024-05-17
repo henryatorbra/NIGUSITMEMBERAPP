@@ -10,6 +10,8 @@ import affiliatedbusinessesRouter from "./routes/affiliatedbusinessesRoutes/affi
 import profileRouter from "./routes/profileRoutes/profileRouter.js"
 import googleusercreatepasswordRouter from "./routes/googleusercreatepasswordRoute/googleusercreatepasswordRoute.js"
 import resetpasswordRouter from "./routes/resetpasswordRoutes/resetpasswordRouter.js"
+import createaffiliatedbusinessRouter from "./routes/createaffiliatedbusinessRoutes/createaffiliatedbusinessRouter.js"
+import getaffiliatedbusinessesRouter from "./routes/getaffiliatedbusinessesRoutes/getaffiliatedbusinessesRouter.js"
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import dotenv from "dotenv";
@@ -29,11 +31,11 @@ const store = new MongoDBSession({
 
 })
 
-// https://nigusitmemberapp.onrender.com/
+// https://nigusitmemberapp.onrender.com//
 
-// https://nigusitmemberapp.onrender.com/
+// https://nigusitmemberapp.onrender.com//
 
-// register view engines.
+// // register view engines.
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
@@ -58,6 +60,13 @@ app.use("/affiliatedbusinesses", affiliatedbusinessesRouter);
 app.use("/profilepage", profileRouter );
 app.use("/googleusercreatepassword",googleusercreatepasswordRouter )
 
+
+// affiliated buisnesses routers
+
+app.use("/createaffliatedbusiness", createaffiliatedbusinessRouter);
+app.use("/getaffiliatedbusinesses",getaffiliatedbusinessesRouter );
+
+// testing ejs routes
 app.get("/ejs", (req,res)=>{
     res.render('views', {title: 'This is ejs test'});
 })

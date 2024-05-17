@@ -1,0 +1,146 @@
+.frame-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-darkslateblue);
+    width: 414px;
+    height: 220px;
+    display: none;
+  }
+  .frame-item {
+    position: absolute;
+    top: 42px;
+    left: 20px;
+    width: 23px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .rectangle-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-darkslateblue);
+    width: 414px;
+    height: 220px;
+  }
+  .blog-icon,
+  .our-courses {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .our-courses {
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+  }
+  .blog-icon {
+    top: 18px;
+    left: 16px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    z-index: 3;
+  }
+  .our-courses-parent {
+    position: absolute;
+    top: 125px;
+    left: 35px;
+    width: 100px;
+    height: 100px;
+  }
+  .frame-inner,
+  .frame-parent {
+    width: 414px;
+    height: 225px;
+    position: relative;
+  }
+  .frame-inner {
+    border-radius: var(--br-xl) var(--br-xl) 0 0;
+    background-color: var(--color-white);
+    height: 732px;
+    display: none;
+  }
+  .willows-cafe {
+    height: 24px;
+    width: 159px;
+    position: relative;
+    font-weight: 600;
+    display: inline-block;
+    z-index: 2;
+  }
+  .willows-cafe-wrapper {
+    width: 291px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 132px;
+    box-sizing: border-box;
+  }
+  .blank-line,
+  .willows-caf-is {
+    margin: 0;
+    font-weight: 500;
+  }
+  .address {
+    font-family: var(--font-inter);
+  }
+  .located-at-123 {
+    font-weight: 500;
+  }
+  .address-located-at-123-tranqu,
+  .blank-line1 {
+    margin: 0;
+  }
+  .span {
+    font-weight: 500;
+  }
+  .contact-555-123-4567 {
+    margin: 0;
+  }
+  .willows-caf-is-container {
+    width: 370px;
+    height: 630px;
+    position: relative;
+    font-size: 18px;
+    line-height: 30px;
+    color: #2a2a2a;
+    text-align: left;
+    display: inline-block;
+    z-index: 2;
+    font-family: var(--font-inter);
+  }
+  .business-page,
+  .rectangle-group {
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .rectangle-group {
+    width: 414px;
+    height: 732px;
+    border-radius: var(--br-xl) var(--br-xl) 0 0;
+    padding: 14px 22px 27px;
+    box-sizing: border-box;
+    gap: 37px;
+    z-index: 1;
+    margin-top: -61px;
+    text-align: left;
+    font-size: 20px;
+    color: var(--color-darkslateblue);
+    font-family: var(--font-inter);
+  }
+  .business-page {
+    width: 100%;
+    height: 896px;
+    position: relative;
+    overflow: hidden;
+}
+  

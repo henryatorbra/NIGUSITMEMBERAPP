@@ -45,7 +45,10 @@ async function loginController (req, res){
       // Again, in the frontend, check for a 200 status code and 
     // navigate to whatever protected page you want.
    
-    res.status(200).json({message: 'you have logged in successfully'});
+    res.status(200).json({message: 'you have logged in successfully', url: `${process.env.HOST_NAME}${process.env.PORT}${req.session.destinationurl ? req.session.destinationurl : profileRedirectUrl}`});
+    // res.status(200).redirect();
+
+    
 
 
     }

@@ -24,7 +24,10 @@ router.use(express.static('public/Onboarding Page 2'));
 // you can see it after the request validator middleware "loginController".
 router.post('/', requestfieldvalidator(loginfieldsvalidationschema),loginController);
 // There will be no request field validator here because, I mean, it's google they'll always give you proper credentials.
-router.post('/googlelogin', googleLoginController);
+router.post('/googlelogin', (req, res, next)=>{
+   
+    next()
+},googleLoginController);
 
 // router.get('/test', (req, res)=> {
 //   req.session.isAuth = true

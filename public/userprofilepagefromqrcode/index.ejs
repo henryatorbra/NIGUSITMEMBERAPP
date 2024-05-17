@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="profile">
+      <section class="frame-parent17">
+        <div class="rectangle-parent34">
+          <div class="frame-child64"></div>
+          <div class="frame-wrapper20">
+            <div class="frame-parent18">
+              <img
+                class="frame-child65"
+                loading="lazy"
+                alt=""
+                src="Resources\loyaly.png"
+              />
+
+              <h3 class="loyaly2">LOYALY</h3>
+            </div>
+          </div>
+          <div class="profile1">PROFILE</div>
+        </div>
+        <div class="frame-wrapper21">
+          <div class="rectangle-parent35">
+            <div class="frame-child66"></div>
+            <img
+              class="frame-child67"
+              loading="lazy"
+              alt=""
+              src="Resources\1-intro-photo-final.jpg"
+            />
+
+            <div class="profile-card-wrapper">
+              <div class="profile-card">
+                <div class="john-eddie-wrapper1">
+                  <b class="john-eddie6"><%= name %></b>
+                </div>
+                <div class="john-eddie7"><%= isActive %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="profile-inner">
+        <nav class="frame-nav">
+          <div class="frame-parent19" id="groupContainer">
+            <div class="ellipse-parent8">
+              <div class="frame-child68"></div>
+              <img
+                class="frame-child69"
+                loading="lazy"
+                alt=""
+                src="Resources\icons8-user-50.png"
+              />
+            </div>
+            <div class="subscription-status-wrapper">
+              <div class="subscription-status">Subscription Status</div>
+            </div>
+          </div>
+          <div class="frame-parent20" id="groupContainer1">
+            <button class="ellipse-parent9">
+              <div class="frame-child70"></div>
+              <img class="frame-child71" alt="" src="Resources\icons8-handshake-24.png" />
+            </button>
+            <div class="affiliated-businesses-wrapper">
+              <div class="affiliated-businesses1">Affiliated Businesses</div>
+            </div>
+          </div>
+          <div class="frame-parent21" id="groupContainer2">
+            <button class="ellipse-parent10">
+              <div class="frame-child72"></div>
+              <img class="frame-child73" alt="" src="Resources\icons8-qr-code-64.png" />
+            </button>
+            <div class="qr-code-wrapper">
+              <div class="qr-code2">QR Code</div>
+            </div>
+          </div>
+          <div class="frame-parent22" id="groupContainer3">
+            <button class="ellipse-parent11">
+              <div class="frame-child74"></div>
+              <img class="frame-child75" alt="" src="Resources\icons8-credit-card-50.png" />
+            </button>
+            <div class="purchases-wrapper">
+              <div class="purchases2">Purchases</div>
+            </div>
+          </div>
+          <div class="frame-parent23" id="groupContainer4">
+            <button class="ellipse-parent12">
+              <div class="frame-child76"></div>
+              <img class="frame-child77" alt="" src="./Resources/icons8-password-50.png"  />
+            </button>
+           
+            <div class="password-wrapper">
+              <div class="password2">Password</div>
+            </div>
+          </div>
+
+          <div class="frame-parent20" id="myBusiness">
+            <button class="ellipse-parent9">
+              <div class="frame-child70"></div>
+              <img class="frame-child71" alt="" src="Resources\icons8-handshake-24.png" />
+            </button>
+            <div class="affiliated-businesses-wrapper">
+              <div class="affiliated-businesses1">My Businesses</div>
+            </div>
+          </div>
+
+          <div class="frame-parent24" id="groupContainer5">
+            <button class="ellipse-parent13">
+              <div class="frame-child78"></div>
+              <img class="frame-child79" alt="" src="Resources\icons8-logout-50.png" />
+            </button>
+            <div class="logout-wrapper">
+              <div class="logout">Logout</div>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </div>
+
+    <div
+      id="logoutOptionsContainer"
+      class="popup-overlay"
+      style="display: none"
+    >
+      <div class="logout-options">
+        <section class="group-section">
+          <div class="frame-child50"></div>
+          <div class="are-you-sure-wrapper">
+            <div class="are-you-sure">Are you sure?</div>
+          </div>
+          <div class="frame-parent14">
+            <button class="rectangle-parent22" id="popupgroupButton">
+              <div class="frame-child51"></div>
+              <div class="no">NO</div>
+            </button>
+            <button class="rectangle-parent23" id="popupgroupButton1">
+              <div class="frame-child52"></div>
+              <div class="yes">YES</div>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+       var popupgroupButton = document.getElementById("myBusiness");
+      if (popupgroupButton) {
+        popupgroupButton.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//myBusiness";
+        });
+      }
+
+      var myBusinessButton = document.getElementById("popupgroupButton");
+      if (myBusinessButton) {
+        myBusinessButton.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
+        });
+      }
+      
+      var popupgroupButton1 = document.getElementById("popupgroupButton1");
+      if (popupgroupButton1) {
+        popupgroupButton1.addEventListener("click", async function (e) {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com//logout', {
+            method: 'POST',
+            //mode: "cors",
+            
+            headers: {
+              'Content-Type' : "application/json",
+            }
+          });
+
+          switch (response.status) {
+            case 200:
+            window.location.href = "https://nigusitmemberapp.onrender.com//";
+              break;
+          
+            default:
+              alert(response.status)
+              break;
+          }
+          
+        });
+      
+      }
+      
+      var groupContainer = document.getElementById("groupContainer");
+      if (groupContainer) {
+        groupContainer.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//subscriptionstatus";
+        });
+      }
+      
+      var groupContainer1 = document.getElementById("groupContainer1");
+      if (groupContainer1) {
+        groupContainer1.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//affiliatedbusinesses";
+        });
+      }
+      
+      var groupContainer2 = document.getElementById("groupContainer2");
+      if (groupContainer2) {
+        groupContainer2.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//qrcode";
+        });
+      }
+      
+      var groupContainer3 = document.getElementById("groupContainer3");
+      if (groupContainer3) {
+        groupContainer3.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//purchases";
+        });
+      }
+      
+      var groupContainer4 = document.getElementById("groupContainer4");
+      if (groupContainer4) {
+        groupContainer4.addEventListener("click", function (e) {
+          window.location.href = "https://nigusitmemberapp.onrender.com//resetpassword";
+        });
+      }
+      
+      var groupContainer5 = document.getElementById("groupContainer5");
+      if (groupContainer5) {
+        groupContainer5.addEventListener("click", function () {
+          var popup = document.getElementById("logoutOptionsContainer");
+          if (!popup) return;
+          var popupStyle = popup.style;
+          if (popupStyle) {
+            popupStyle.display = "flex";
+            popupStyle.zIndex = 100;
+            popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+            popupStyle.alignItems = "center";
+            popupStyle.justifyContent = "center";
+          }
+          popup.setAttribute("closable", "");
+      
+          var onClick =
+            popup.onClick ||
+            function (e) {
+              if (e.target === popup && popup.hasAttribute("closable")) {
+                popupStyle.display = "none";
+              }
+            };
+          popup.addEventListener("click", onClick);
+        });
+      }
+      </script>
+  </body>
+</html>

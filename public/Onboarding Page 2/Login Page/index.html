@@ -8,7 +8,7 @@
     <div id="g_id_onload"
          data-client_id="505259484700-69o5mahh8e8nn1341qip7r6dp9t8rp8b.apps.googleusercontent.com"
          
-         data-login_uri="https://nigusitmemberapp.onrender.com/googlelogin"
+         data-login_uri="https://nigusitmemberapp.onrender.com//googlelogin"
          
          data-use_fedcm_for_prompt="true">
 
@@ -160,7 +160,7 @@
             
           });
 
-          var response =  await fetch('https://nigusitmemberapp.onrender.com', {
+          var response =  await fetch('https://nigusitmemberapp.onrender.com/', {
             method: 'POST',
             //mode: "cors",
             body: requestBody,
@@ -171,14 +171,14 @@
 
           var data = await response.text();
           var intermediateData = JSON.parse(data)
-
+          console.log(response.status);
           switch (response.status) {
             case 401:
               alert('Invalid username or password');
               break;
             case 200:
               alert('login Successful');
-              window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
+              window.location.href = intermediateData.url;
 
               break;
             
@@ -189,7 +189,7 @@
       var donttHaveAn = document.getElementById("donttHaveAn");
       if (donttHaveAn) {
         donttHaveAn.addEventListener("click", function (e) {
-          window.location.href = "https://nigusitmemberapp.onrender.com/signup";
+          window.location.href = "https://nigusitmemberapp.onrender.com//signup";
         });
       }
      

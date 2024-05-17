@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Archivo Black:wght@400&display=swap"
     />
   </head>
-  <body>
+  <body id="body">
     <div class="affiliated-businesses1">
       <header class="rectangle-parent11">
         <div class="frame-child29"></div>
@@ -37,27 +37,8 @@
       />
 
       <section class="affiliated-businesses-inner">
-        <div class="frame-parent14">
-          <button class="rectangle-parent12" onclick="navigateToBusinessPage('./willows-cafe-page/willows-cafe-page.html');">
-            <div class="frame-child31" id="rectangle1"></div>
-            <div class="ellipse-parent4">
-              <img
-                class="frame-child32"
-                alt=""
-                src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Affiliated Business Page\Resources\Ellipse 35.png"
-              />
-              <div class="willows-cafe-wrapper">
-                <b class="willows-cafe">Willow’s Cafe</b>
-              </div>
-            </div>
-            <div class="frame-wrapper5">
-              <img
-                class="frame-child33"
-                alt=""
-                src="C:\Users\uswe\OneDrive\Desktop\WEB APP\Affiliated Business Page\Resources\Vector.png"
-              />
-            </div>
-          </button>
+        <div class="frame-parent14" id="main">
+        
           <div class="rectangle-parent13" onclick="navigateToBusinessPage('./eats-deli-page.html');">
             <div class="frame-child34" id="rectangle2"></div>
             <div class="ellipse-parent5">
@@ -165,6 +146,7 @@
     </div>
 
     <script>
+      document.addEventListener('DOMContentLoaded', loadbusinesses, false)
       function navigateToBusinessPage(url) {
         window.location.href = url;
       }
@@ -174,6 +156,73 @@
         groupIcon.addEventListener("click", function (e) {
           window.location.href = "./profile.html";
         });
+      }
+
+      // this function will be attached to an onload event listener.
+      async function loadbusinesses (){
+        // step one, make api request to get businesses.
+
+        console.log("onload fired well");
+
+        var response =  await fetch('https://nigusitmemberapp.onrender.com//getaffiliatedbusinesses', {
+            method: 'GET',  
+          });
+
+          var data = await response.text();
+          var intermediateData = JSON.parse(data)
+
+          switch (response.status) {
+            case 401:
+              alert('Invalid credentials');
+              break;
+            case 200:
+              alert('fetched businessses Successfully');
+              //window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
+               break;
+            case 400:
+              alert('Not authorized');
+              break;
+            
+          }
+
+        console.log(`affliated businesses GET request result ${JSON.stringify(intermediateData[0])}`);
+      //  create the element you want  <b class="noodle-bar">Noodle Bar</b>
+          if (intermediateData.length == 0){
+            return;
+          }
+      intermediateData.map((e, i)=>{
+        console.log("map works");
+        var bElement = document.createElement('div');
+         bElement.className = "noodle-bar";
+         bElement.innerHTML = `<button class="rectangle-parent17" onclick="navigateToBusinessPage('./noodle-bar-page.html');">
+            <div class="frame-child46" id="rectangle6"></div>
+            <div class="ellipse-parent9">
+              <img
+                class="frame-child47"
+                alt=""
+                src="\Affiliated Business Page\Resources\Ellipse 36.png"
+              />
+              <div class="noodle-bar-wrapper">
+                <b class="noodle-bar">${e.businessname}</b>
+              </div>
+            </div>
+            <div class="frame-wrapper10">
+              <img
+                class="frame-child48"
+                alt=""
+                src="Affiliated Business Page\Resources\Vector.png"
+              />
+            </div>
+          </button>`
+        // select the element you want from The DOM
+         var oldElement = document.getElementById('main');
+        //  .getElementsByTagName("ul")[0];
+
+         // append the new element to the old element.
+         oldElement.appendChild(bElement);
+      })
+
+
       }
     </script>
   </body>

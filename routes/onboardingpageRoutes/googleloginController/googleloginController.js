@@ -10,8 +10,8 @@ dotenv.config();
 const googleClientId = process.env.GOOGLE_CLIENT_TOKEN;
 const port = process.env.PORT;
 const hostName = process.env.HOST_NAME;
-const passwordRedirectUrl = `https://nigusitmemberapp.onrender.com/googleusercreatepassword`;
-const profileRedirectUrl = "https://nigusitmemberapp.onrender.com/profilepage";
+const passwordRedirectUrl = `https://nigusitmemberapp.onrender.com//googleusercreatepassword`;
+const profileRedirectUrl = "/profilepage";
 
 
 
@@ -102,10 +102,11 @@ async function googleLoginController (req, res){
         req.session.email = userDetailsFromGoogle.email;
         req.session.firstname = userDetailsFromGoogle.given_name;
         req.session.lastname = userDetailsFromGoogle.family_name;
+        
 
 
 
-      
+        console.log(`password redirect from google`)
 
        
         res.status(200).redirect(passwordRedirectUrl);
@@ -116,14 +117,22 @@ async function googleLoginController (req, res){
         // console.log(
         // userEmailFromDb
         // )
+        console.log(`profile redirect from google`)
         req.session.isAuth = true;
         req.session.email = userFromDb.email;
         req.session.firstname = userFromDb.firstname;
         req.session.lastname = userFromDb.lastname;
         req.session.active = userFromDb.active;
         req.session.subscribedAt = userFromDb.subscribedAt;
+        req.session.userId = userFromDb._id;
+
+
+
+        console.log(`this is the req url ${req.session.destinationurl}`);
+        console.log(`${process.env.HOST_NAME}${process.env.PORT}${req.session.destinationurl ? req.session.destinationurl : passwordRedirectUrl}`);
         
-        res.status(200).redirect(profileRedirectUrl);
+        res.status(200).redirect(`${process.env.HOST_NAME}${process.env.PORT}${req.session.destinationurl ? req.session.destinationurl : profileRedirectUrl}`);
+        
         
     }
 
