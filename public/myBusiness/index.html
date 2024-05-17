@@ -66,7 +66,7 @@
 
         console.log("onload fired well");
 
-        var response =  await fetch('https://nigusitmemberapp.onrender.com//getaffiliatedbusinesses/getmybusinesses', {
+        var response =  await fetch('https://nigusitmemberapp.onrender.com/getaffiliatedbusinesses/getmybusinesses', {
             method: 'GET',  
           });
 
@@ -79,7 +79,7 @@
               break;
             case 200:
               alert('fetched businessses Successfully');
-              //window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
+              //window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
                break;
             case 400:
               alert('Not authorized');
@@ -96,7 +96,7 @@
         console.log("map works");
         var bElement = document.createElement('div');
          bElement.className = "noodle-bar";
-         var url = `https://nigusitmemberapp.onrender.com//getaffiliatedbusinesses/individualbusiness?businessname=${e.businessname}`
+         var url = `https://nigusitmemberapp.onrender.com/getaffiliatedbusinesses/individualbusiness?businessname=${e.businessname}`
          bElement.innerHTML = `<button class="rectangle-parent17" onclick="navigateToBusinessPage('${url}');">
             <div class="frame-child46" id="rectangle6"></div>
             <div class="ellipse-parent9">

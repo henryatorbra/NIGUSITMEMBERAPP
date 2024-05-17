@@ -164,7 +164,7 @@
 
         console.log("onload fired well");
 
-        var response =  await fetch('https://nigusitmemberapp.onrender.com//getaffiliatedbusinesses', {
+        var response =  await fetch('https://nigusitmemberapp.onrender.com/getaffiliatedbusinesses', {
             method: 'GET',  
           });
 
@@ -177,7 +177,7 @@
               break;
             case 200:
               alert('fetched businessses Successfully');
-              //window.location.href = "https://nigusitmemberapp.onrender.com//profilepage";
+              //window.location.href = "https://nigusitmemberapp.onrender.com/profilepage";
                break;
             case 400:
               alert('Not authorized');

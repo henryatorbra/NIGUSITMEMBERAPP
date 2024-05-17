@@ -31,9 +31,9 @@ const store = new MongoDBSession({
 
 })
 
-// https://nigusitmemberapp.onrender.com//
+// https://nigusitmemberapp.onrender.com/
 
-// https://nigusitmemberapp.onrender.com//
+// https://nigusitmemberapp.onrender.com/
 
 // // register view engines.
 app.use(express.static('public'));
